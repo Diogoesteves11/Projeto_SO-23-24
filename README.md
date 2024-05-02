@@ -1,37 +1,39 @@
-Orquestrador de Tarefas
 
-Este é um projeto de um serviço de orquestração de tarefas, desenvolvido como parte de um trabalho académico para a UC de Sistemas Operativos.
-Funcionalidades Principais:
+Task Orchestrator
 
-    Execução de tarefas do utlizador, individualmente ou em pipelines.
-    Escalonamento e execução de tarefas pelo servidor.
-    Redirecionamento de saída para arquivos correspondentes.
-    Consulta de tarefas em execução e já realizadas.
+This is a project for a task orchestration service, developed as part of an academic assignment for the Operating Systems course.
 
-Estrutura do Projeto:
+Main Features:
 
-    src/: Contém o código-fonte do projeto.
-    include/: Contém os ficheiros-cabeçalho do projeto
-    obj/: Armazena os ficheiros objeto(binário) gerados durante a compilação.
-    bin/: Contém os executáveis gerados após a compilação.
-    scripts/: Contém um script básico para testes
-    progs-TP23_24/: Contém programas de teste void e hello.
-    Makefile: Ficheiro de script para compilar e construir o projeto.
+    Execution of user tasks, either individually or in pipelines.
+    Task scheduling and execution by the server.
+    Output redirection to corresponding files.
+    Querying of tasks in progress and already completed.
 
-Como Executar:
+Project Structure:
 
-    Na diretoria principal: 
+    src/: Contains the project's source code.
+    include/: Contains the project's header files.
+    obj/: Stores the object files (binary) generated during compilation.
+    bin/: Contains the executables generated after compilation.
+    scripts/: Contains a basic testing script.
+    progs-TP23_24/: Contains void and hello test programs.
+    Makefile: Script file for compiling and building the project.
+
+How to Run:
+
+    In the main directory:
     $ make
 
-    Na diretoria bin:
+    In the bin directory:
     $./orchestrator <outputPath> <num_parallel_tasks>
     $./client execute <time> <flag> "program program_args..."
 
-Configurações Adicionais:
+Additional Configurations:
 
-    $./client help: comando para mostrar uma mensagem de ajuda ao cliente
+    $./client help: command to display a help message to the client
 
-Autor:
+Author:
 Diogo José Fernandes Esteves
 
 
