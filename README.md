@@ -1,35 +1,37 @@
 Orquestrador de Tarefas
 
-Este é um projeto de um serviço de orquestração de tarefas em um computador, desenvolvido como parte de um trabalho acadêmico para a disciplina de Sistemas Operativos.
+Este é um projeto de um serviço de orquestração de tarefas, desenvolvido como parte de um trabalho académico para a UC de Sistemas Operativos.
 Funcionalidades Principais:
 
-    Execução de tarefas do usuário, individualmente ou em pipelines.
+    Execução de tarefas do utlizador, individualmente ou em pipelines.
     Escalonamento e execução de tarefas pelo servidor.
     Redirecionamento de saída para arquivos correspondentes.
-    Consulta de tarefas em execução.
+    Consulta de tarefas em execução e já realizadas.
 
 Estrutura do Projeto:
 
-    src/: Contém os arquivos-fonte do projeto.
-    include/: Opcionalmente, contém arquivos de cabeçalho.
-    obj/: Armazena os arquivos objetos gerados durante a compilação.
+    src/: Contém o código-fonte do projeto.
+    include/: Contém os ficheiros-cabeçalho do projeto
+    obj/: Armazena os ficheiros objeto(binário) gerados durante a compilação.
     bin/: Contém os executáveis gerados após a compilação.
-    Makefile: Arquivo de script para compilar e construir o projeto.
+    scripts/: Contém um script básico para testes
+    progs-TP23_24/: Contém programas de teste void e hello.
+    Makefile: Ficheiro de script para compilar e construir o projeto.
 
 Como Executar:
 
-    Compile o servidor:
-    $ make orchestrator
+    Na diretoria principal: 
+    $ make
 
-    Compile o cliente:  
-    $ make client
+    Na diretoria bin:
+    $./orchestrator <outputPath> <num_parallel_tasks>
+    $./client execute <time> <flag> "program program_args..."
 
 Configurações Adicionais:
 
-    O arquivo de Makefile pode ser ajustado conforme necessário para incluir outras dependências ou realizar outras operações específicas.
-    Certifique-se de ter todas as bibliotecas necessárias instaladas no seu sistema para compilar o projeto corretamente.
+    $./client help: comando para mostrar uma mensagem de ajuda ao cliente
 
 Autor:
-Rodrigo Miguel Granja Ferreira 
+Diogo José Fernandes Esteves
 
 
