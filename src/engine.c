@@ -22,29 +22,23 @@ void fillArray(char *array[],char *command, int* num_pipelines) {
     char *token;
     int index = 0;
 
-    // Get the first token
     token = strtok(command, delim);
 
-    // Walk through other tokens
     while (token != NULL && index < MAX_PIPELINES) {
-        // Remove leading and trailing whitespace
         while (*token == ' ')
             token++;
         int len = strlen(token);
         while (len > 0 && token[len - 1] == ' ')
             token[--len] = '\0';
 
-        // Allocate memory for the token and copy it to the array
         array[index] = (char *)malloc((strlen(token) + 1) * sizeof(char));
         strcpy(array[index], token);
 
-        // Get the next token
         token = strtok(NULL, delim);
         index++;
         (*num_pipelines)++;
     }
 
-    // Fill remaining slots with NULL
     while (index < MAX_PIPELINES) {
         array[index] = NULL;
         index++;
