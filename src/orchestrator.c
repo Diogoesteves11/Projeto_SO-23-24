@@ -98,12 +98,12 @@ int main(int argc, char** argv) {
             }
             if(strcmp(task_read.command,"help") == 0){
                 char *help_message = "\nWelcome to the task orchestrator!\n"
-                                     "To request a task, use 'execute <time> -u \"<task name> <arguments>\"'.\n"
-                                     "To request a pipeline task, use 'execute <time> -p  \"program1 | program2 | ...\"'.\n"
-                                     "After the request, you'll receive a task ID.\n"
-                                     "Your task's output will be shown on the 'logs' dir, on a file with your task ID name, output, and time.\n"
-                                     "You can check the server status using the command 'status'\n"
-                                     "In order to close the server, use the command 'quit', with the admin flag and the admin password.\n";
+                                       "To request a task, use 'execute <time> -u \"<task name> <arguments>\"'.\n"
+                                       "To request a pipeline task, use 'execute <time> -p  \"program1 | program2 | ...\"'.\n"
+                                       "After the request, you'll receive a task ID.\n"
+                                       "Your task's output will be shown on the 'logs' dir, on a file with your task ID name, output, and time.\n"
+                                       "You can check the server status using the command 'status'\n"
+                                       "In order to close the server, use the command 'quit', with the admin flag and the admin password.\n";
 
                 server_client_fifo = open(SERVER_CLIENT_FIFO,O_WRONLY);
                 write(server_client_fifo,help_message,strlen(help_message));
@@ -126,8 +126,8 @@ int main(int argc, char** argv) {
 
                 pid_t pid = fork();
                 if(pid == 0){
-                    if(strcmp(task_executing.flag,"-u") == 0) task_executing = __engine_execute_task(task_executing,logFile_fd);
-                    if(strcmp(task_executing.flag,"-p") == 0) task_executing = __engine_execute_pipeline(task_executing,logFile_fd);
+                    if(strcmp(task_executing.flag,"-u") == 0) task_executing = __engine_execute_task(task_executing,outputPath,logFile_fd);
+                    if(strcmp(task_executing.flag,"-p") == 0) task_executing = __engine_execute_pipeline(task_executing,outputPath,logFile_fd);
 
                     strcpy(task_executing.flag,"C");
                     server_client_fifo = open(SERVER_CLIENT_FIFO,O_WRONLY);
@@ -147,8 +147,8 @@ int main(int argc, char** argv) {
 
             pid_t pid = fork();
             if(pid == 0){
-                if(strcmp(task_executing.flag,"-u") == 0) task_executing = __engine_execute_task(task_executing,logFile_fd);
-                if(strcmp(task_executing.flag,"-p") == 0) task_executing = __engine_execute_pipeline(task_executing,logFile_fd);
+                if(strcmp(task_executing.flag,"-u") == 0) task_executing = __engine_execute_task(task_executing,outputPath,logFile_fd);
+                if(strcmp(task_executing.flag,"-p") == 0) task_executing = __engine_execute_pipeline(task_executing,outputPath,logFile_fd);
 
                 strcpy(task_executing.flag,"C");
                 server_client_fifo = open(SERVER_CLIENT_FIFO,O_WRONLY);
