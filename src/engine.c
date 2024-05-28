@@ -179,10 +179,10 @@ Task __engine_execute_pipeline(Task task_executing, char* outputPath, int logFil
         }
     }
 
-
     for (int i = 0; i < num_pipelines; i++) {
         wait(NULL);
     }
+
     gettimeofday(&end, NULL);
     long runtime = (end.tv_sec - start.tv_sec) * 1000 + (end.tv_usec - start.tv_usec) / 1000; // em ms
     task_executing.time = (int) runtime;
